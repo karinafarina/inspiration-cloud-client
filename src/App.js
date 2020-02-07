@@ -1,26 +1,52 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
+import Landing from './Landing/Landing';
+import Messages from './Messages/Messages';
+import AddMessage from './AddMessage/AddMessage';
+import './App.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component {
+
+  state = {
+    messages: []
+  }
+
+  componentDidMount() {
+    //dummy data loading
+    let { messages } = this.props
+    setTimeout(()=> this.setState({messages}), 600);
+  }
+
+  render() {
+    console.log('messages', this.state.messages)
+
+    const { messages } = this.state;
+    return (
+      <div className='App'>
+        <Route
+          exact
+          path='/'
+          component={Landing}
+        />
+        <Route
+          exact
+          path='/messages'
+          render={routeProps => (
+            <Messages
+              messages={messages}
+              {...routeProps}
+            />
+          )}
+        />
+        <Route
+          exact
+          path='/add-message'
+          component={AddMessage}
+        />
+      </div>
+    );
+  }
 }
 
 export default App;

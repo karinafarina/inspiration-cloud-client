@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "alias": "karinas-inspiration-cloud",
+  "name": "inspiration-cloud",
+  "routes": [
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/.*",
+      "dest": "/index.html"
+    }
+  ]
+}

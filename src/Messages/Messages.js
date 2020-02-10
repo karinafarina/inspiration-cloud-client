@@ -8,17 +8,8 @@ export class Messages extends Component {
 
   static contextType = MessagesContext;
 
-  state = {
-    fadeMessages: []
-  }
-
   render() {
     const { messages } = this.context;
-    for (let i = 0; i < messages.length; i++) {
-      this.setState({
-        fadeMessages: this.state.fadeMessages.push(messages[i])
-      })
-    }
 
     const fadeProperties = {
       duration: 5000,
@@ -34,11 +25,17 @@ export class Messages extends Component {
         <div className="slide-container">
 
           <Fade {...fadeProperties}>
-            <div className="each-fade">
-              <div className="message-container">
-              {this.state.fadeMessages}
-              </div>
-            </div>
+            {messages.map((message, key)  => {
+              console.log('messag.id', message.id, message.message)
+              return(
+                <div className="each-fade" key={message.id}>
+                  <div className="message-container" >
+                    {message.message}
+                  </div>
+                </div>
+              )
+            })
+          } 
           </Fade>
         </div>
         

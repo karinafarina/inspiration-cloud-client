@@ -14,7 +14,7 @@ export class Messages extends Component {
     const fadeProperties = {
       duration: 5000,
       transitionDuration: 500,
-      infinite: false,
+      infinite: true,
       indicators: true,
       onChange: (oldIndex, newIndex) => {
         console.log(`fade transition from ${oldIndex} to ${newIndex}`);

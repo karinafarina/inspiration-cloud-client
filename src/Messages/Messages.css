@@ -43,3 +43,12 @@ h3 {
   margin: 0;
   background: #adceed;
 }
+
+.add-button {
+  margin-bottom: 40px;
+  margin-top: 80px;
+}
+
+div.nav {
+  visibility: hidden;
+}

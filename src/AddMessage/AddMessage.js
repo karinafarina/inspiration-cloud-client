@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import config from '../config';
 import MessagesContext from '../MessagesContext'
+import ValidationError from '../ValidationError';
 import './AddMessage.css';
 
 export class AddMessage extends Component {
@@ -8,27 +9,43 @@ export class AddMessage extends Component {
   static contextType = MessagesContext;
 
   state = {
-    error: null,
+    messageError: null,
+    message: {
+      value: '',
+      touched: false
+    }
+    
   };
 
-  handleSubmit = (message, callback) => {
-    this.setState({ error: null })
+  updateMessage(message) {
+    this.setState({message: { value: message, touched: true } })
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    //get form fields from event
+
+    const message = this.state.message.value.trim();
+
+    this.setState({ messageError: null })
+
     fetch(config.API_BASE_URL, {
       method: 'POST',
-      body: JSON.stringify(message),
+      body: JSON.stringify( { message }),
       headers: {
         'content-type': 'application/json'
       }
     })
     .then(res => {
+      console.log('houwdy', res)
       if(!res.ok) {
-        return res.json().then(error => Promise.reject(error))
+        throw new Error('Something went wrong, please try again later');
       }
-      return res.json()
+      return res.json();
     })
-    .then(data => {
-      callback(data)
-      this.context.addMessage(data)
+    .then((newMessage) => {
+      console.log('data', newMessage)
+      this.context.addMessage(newMessage)
       this.props.history.push('/messages')
     })
     .catch(error => {
@@ -37,12 +54,32 @@ export class AddMessage extends Component {
     })
   }
 
+  validateMessage() {
+    const message = this.state.message.value.trim();
+    if(message.length === 0) {
+      return "Message is required";
+    } else if (message.length < 3) {
+      return "Message must be at least 3 characters long";
+    }
+  }
+
   render() {
+    const messageError = this.validateMessage();
+
     return (
       <div className="add-message">
+        <h3>Add Your encouraging or inspirational message here</h3>
         <form className="add" onSubmit={this.handleSubmit}>
-          <h3>Add Your encouraging or inspirational message here</h3>
-          <input className="input" type="text" />
+          <textarea 
+            id="message" 
+            rows="8" 
+            cols="50" 
+            name="adding" 
+            onChange={e => this.updateMessage(e.target.value)}>
+          </textarea>
+          {this.state.message.touched && (
+            <ValidationError message={messageError} />
+          )}
           <input type="submit" />
           {/* ON SUBMIT, ADD MESSAGE TO DATABASE */}
         </form>

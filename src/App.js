@@ -15,12 +15,6 @@ class App extends Component {
     error: null,
   }
 
-  addMessage = message => {
-    this.setState({
-      messages: [ ...this.state.messages, message ],
-    })
-  }
-
   componentDidMount() {
     const options = {
       method: 'GET',
@@ -45,6 +39,12 @@ class App extends Component {
       .catch(error => {
         console.error(error)
       })
+  }
+
+  addMessage = (message) => {
+    this.setState({
+      messages: [...this.state.messages, message],
+    })
   }
 
   render() {

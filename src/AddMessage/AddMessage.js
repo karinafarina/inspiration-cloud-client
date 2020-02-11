@@ -29,7 +29,7 @@ export class AddMessage extends Component {
 
     this.setState({ messageError: null })
 
-    fetch(config.API_BASE_URL, {
+    fetch(`${config.API_BASE_URL}/messages`, {
       method: 'POST',
       body: JSON.stringify( { message }),
       headers: {

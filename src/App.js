@@ -22,7 +22,7 @@ class App extends Component {
         "Content-Type": "application/json"
       }
     }
-    fetch(config.API_BASE_URL, options)
+    fetch(`${config.API_BASE_URL}/messages`, options)
       .then(res => {
         if(!res.ok) {
           return res.json().then(error => {

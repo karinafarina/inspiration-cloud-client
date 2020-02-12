@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import config from '../config';
 import MessagesContext from '../MessagesContext'
 import ValidationError from '../ValidationError';
@@ -83,6 +84,8 @@ export class AddMessage extends Component {
           <input type="submit" />
           {/* ON SUBMIT, ADD MESSAGE TO DATABASE */}
         </form>
+        <button type="submit"><Link to='./messages'>Cancel</Link></button>
+
       </div>
     )
   }

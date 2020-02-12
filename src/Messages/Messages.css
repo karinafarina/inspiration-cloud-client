@@ -1,12 +1,23 @@
-.react-slideshow-container {
-  text-align: center;
-  height: 400px;
+.messages {
+  background-image: url('../images/anthony-cantin-m8v1OJ3qlQw-unsplash.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center; 
 }
 
+.react-slideshow-container {
+  text-align: center;
+  
+}
 
 .slide-container {
   width: 70%;
-  margin: auto; }
+  margin: 40px auto 0; 
+  font-size: 90px;
+  color: #eee;
+  font-family: 'Caveat', cursive;
+  font-weight: bold;
+}
 
 h3 {
   text-align: center; }
@@ -46,9 +57,24 @@ h3 {
 
 .add-button {
   margin-bottom: 40px;
-  margin-top: 80px;
+  margin-top: 20px;
+  text-align: center;
+  color: #eee;
+  font-size: 36px;
 }
 
 div.nav {
   visibility: hidden;
+}
+
+@media only screen and (min-width: 992px) {
+  .slide-container {
+    font-size: 55px;
+    color: darkslateblue;
+
+  }
+
+  .add-button {
+    font-size: 22px;
+  }
 }

@@ -1,0 +1,16 @@
+.landing {
+  background-image: url('../images/purple-clouds.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-size: 60px;
+  color: darkslateblue;
+  font-family: 'Caveat', cursive;
+  font-weight: bold;
+  text-align: center;
+}
+
+@media only screen and (min-width: 992px) {
+  .landing {
+    font-size: 40px;
+  }
+}

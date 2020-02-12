@@ -26,7 +26,6 @@ export class Messages extends Component {
 
           <Fade {...fadeProperties}>
             {messages.map((message, key)  => {
-              console.log('messag.id', message.id, message.message)
               return(
                 <div className="each-fade" key={message.id}>
                   <div className="message-container" >

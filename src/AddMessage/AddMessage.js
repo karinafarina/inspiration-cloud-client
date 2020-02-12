@@ -38,14 +38,12 @@ export class AddMessage extends Component {
       }
     })
     .then(res => {
-      console.log('houwdy', res)
       if(!res.ok) {
         throw new Error('Something went wrong, please try again later');
       }
       return res.json();
     })
     .then((newMessage) => {
-      console.log('data', newMessage)
       this.context.addMessage(newMessage)
       this.props.history.push('/messages')
     })

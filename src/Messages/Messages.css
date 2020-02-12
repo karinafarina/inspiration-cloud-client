@@ -14,7 +14,7 @@
   width: 70%;
   margin: 40px auto 0; 
   font-size: 90px;
-  color: #eee;
+  color: darkslateblue;
   font-family: 'Caveat', cursive;
   font-weight: bold;
 }
@@ -70,8 +70,6 @@ div.nav {
 @media only screen and (min-width: 992px) {
   .slide-container {
     font-size: 55px;
-    color: darkslateblue;
-
   }
 
   .add-button {

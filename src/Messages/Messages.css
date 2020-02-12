@@ -1,8 +1,27 @@
 .messages {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+  color: darkslateblue;
+  font-family: 'Caveat', cursive;
+  font-weight: bold;
+  
+}
+
+.messages::after {
+  content: "";
   background-image: url('../images/anthony-cantin-m8v1OJ3qlQw-unsplash.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center; 
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
 }
 
 .react-slideshow-container {
@@ -14,10 +33,9 @@
   width: 70%;
   margin: 40px auto 0; 
   font-size: 90px;
-  color: darkslateblue;
-  font-family: 'Caveat', cursive;
-  font-weight: bold;
+  
 }
+
 
 h3 {
   text-align: center; }
@@ -59,7 +77,6 @@ h3 {
   margin-bottom: 40px;
   margin-top: 20px;
   text-align: center;
-  color: #eee;
   font-size: 36px;
 }
 

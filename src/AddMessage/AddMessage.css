@@ -4,27 +4,67 @@
   background: linear-gradient(to top, #636FA4, #E8CBC0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   font-size: 80px;
   color: darkslateblue;
-  font-family: 'Caveat', cursive;
   font-weight: bold;
 }
 
 .add {
   display: flex;
   flex-direction: column;
-  font-size: 40px;
 } 
 
-.add textarea {
-  border-radius: 5px;
+#message-input {
+  background-color: transparent;
+  width: 500px;
+  border: none;
+  border-bottom: 2px solid darkslateblue;
+  font-family: 'Caveat', cursive;
+  font-size: 60px;
+  color: darkslateblue;
 }
 
-.add input {
-  margin-top: 10px;
-  width: 25%;
+#message-input:hover {
+  border-bottom: 2px solid rgb(115, 80, 196);
+}
+#message-input:focus {
+  outline:none;
+  border: none;
+  border-bottom: 2px solid darkslateblue;
+}
+
+.error {
+  color: red;
+  font-size: 34px;
+}
+
+.submit, .cancel {
+  /* border: 1px solid darkslateblue; */
+  width: 200px;
+  background-color: #E8CBC0;
+  border-radius: 50px;
+  margin-top: 20px;
+  font-size: 40px;
+  font-family: 'Caveat', cursive;
+  color: darkslateblue;
+  transition: box-shadow 1s;
+  box-shadow: 0;
+}
+
+.submit:hover, .cancel:hover {
+  background-color: #bdadb7;
+  box-shadow: 0 0 3px;
+}
+
+.cancel a {
+  text-decoration: none;
 }
 
 @media only screen and (min-width: 992px) {
   .add-message {
     font-size: 55px;
+  }
+
+  .submit, .cancel {
+    font-size: 20px;
+    width: 100px;
   }
 }

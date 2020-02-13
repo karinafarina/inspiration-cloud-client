@@ -1,5 +1,6 @@
 .App {
   position: relative;
+  font-family: 'Caveat', cursive;
 }
 
 .landing, .messages, .add-message {
@@ -8,5 +9,12 @@
   align-items: center;
   justify-content: space-evenly;
   height: 100vh;
-  padding: 20px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(115, 80, 196)
 }

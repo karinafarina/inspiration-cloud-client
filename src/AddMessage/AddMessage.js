@@ -67,22 +67,21 @@ export class AddMessage extends Component {
 
     return (
       <div className="add-message">
-        <h3>Add Your encouraging or inspirational message here</h3>
+        <h3>Add your encouraging or inspirational message here</h3>
         <form className="add" onSubmit={this.handleSubmit}>
-          <textarea 
-            id="message" 
-            rows="8" 
-            cols="50" 
-            name="adding" 
-            onChange={e => this.updateMessage(e.target.value)}>
-          </textarea>
+          <input 
+            type="text"
+            id="message-input" 
+            name="message-input" 
+            onChange={e => this.updateMessage(e.target.value)}
+          />
           {this.state.message.touched && (
             <ValidationError message={messageError} />
           )}
-          <input type="submit" />
+          <input type="submit" className="submit" />
           {/* ON SUBMIT, ADD MESSAGE TO DATABASE */}
         </form>
-        <button type="submit"><Link to='./messages'>Cancel</Link></button>
+        <button className="cancel" type="submit"><Link to='./messages'>Cancel</Link></button>
 
       </div>
     )
